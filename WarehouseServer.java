@@ -54,10 +54,10 @@ final class WarehouseServer {
 
         String[] answer = new String[maxResult];
 
-        int index = 0;
+        int index = maxResult-1;
         for(Map.Entry<Double,String> me: result.entrySet()){
-            if(index < maxResult ){
-                answer[index++] = me.getValue();
+            if(index >= 0 ){
+                answer[index--] = me.getValue();
             }else {
                 break;
             }
