@@ -56,7 +56,7 @@ final class WarehouseServer {
 
         int index = maxResult-1;
         for(Map.Entry<Double,String> me: result.entrySet()){
-            if(index >= 0 ){
+            if(result.size() >= index && index >= 0){
                 answer[index--] = me.getValue();
             }else {
                 break;
