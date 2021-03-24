@@ -47,7 +47,7 @@ final class WarehouseServer {
             }
         }
         // Find the most traveled.
-        Map< Double, String> result = unsortMap.entrySet().stream()
+        unsortMap = unsortMap.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey())
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
                         (oldValue, newValue) -> oldValue, LinkedHashMap::new));
@@ -55,8 +55,8 @@ final class WarehouseServer {
         String[] answer = new String[maxResult];
 
         int index = maxResult-1;
-        for(Map.Entry<Double,String> me: result.entrySet()){
-            if(result.size() >= index && index >= 0){
+        for(Map.Entry<Double,String> me: unsortMap.entrySet()){
+            if(unsortMap.size() >= index && index >= 0){
                 answer[index--] = me.getValue();
             }else {
                 break;
